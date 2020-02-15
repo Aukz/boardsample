@@ -1,1 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
+
+hr {
+  height: 1px;
+  border: none;
+  border-top: 1px #000000 solid;
+}
+
+body {
+      background-image: url("/images/bg.gif");
+}
