@@ -1,0 +1,18 @@
+<table class="table table-bordered mb-0 bg-white">
+   <h3 class="text-center  pt-3 pb-3">検索結果：<%= params[:search][:sured] %></h3>
+  <tbody>
+    <% unless @sureds.blank?  %>
+      <% @sureds.each do |sured| %>
+        <tr style="border: 2px solid #d2d2d2;">
+          <td scope="row" class="search">
+            <div class="pl-5">
+              <h4><%= link_to sured.title, sured%><span class="ml-3 pl-2 h6">スレ主: <%= sured.editer %></span></h4>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <p class="text-center pt-5">検索結果が見つかりませんでした</p>
+    <% end %>
+  </tbody>
+</table>

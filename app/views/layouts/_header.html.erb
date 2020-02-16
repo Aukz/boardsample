@@ -1,11 +1,18 @@
 
 <header class="sticky-top ">
   <nav class="navbar navbar-white bg-white  navbar-expand-lg">
-      <a class="navbar-brand mb-0 h1 text-dark " href="/login">掲示板(仮)</a>
+      <a class="navbar-brand mb-0 h1 text-dark " href="/sureds">掲示板(仮)</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="<%= new_sured_path%>">スレッド新規作成</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="<%= sureds_path %>">スレッド一覧</a>
+      </li>
+    </ul>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <% if logged_in? %>
           <ul class="navbar-nav ml-auto">
@@ -29,8 +36,8 @@
             </li>
           </ul>
         <% end  %>
-        <%= form_with(scope: :search, url: users_path, method: :get, local: true,class: "form-inline m-2 my-lg-0 row") do |f| %>
-            <%= f.text_field :novel, class:"form-control mb-0 mr-sm-2 col-md-8",type: "search",placeholder:"Search","aria-label" => "Search"%>
+        <%= form_with(scope: :search, url: seach_path, method: :get, local: true,class: "form-inline m-2 my-lg-0 row") do |f| %>
+            <%= f.text_field :sured, class:"form-control mb-0 mr-sm-2 col-md-8",type: "search",placeholder:"Search","aria-label" => "Search"%>
             <%= f.submit "検索", class: "btn btn-outline-secondary col-md-3 mb-0"%>
           <% end %>
       </div>
