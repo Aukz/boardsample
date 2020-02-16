@@ -6,6 +6,16 @@
     <%= f.label :editer, "作者" %>
     <%= f.text_field :editer, value: "名無しさん", class: "form-control" %>
 
+    <p>
+    <%= f.label :category, 'カテゴリ' %>
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+      <%= category.label do %>
+        <%= category.check_box %>
+        <%= category.text %>
+      <% end %>
+    <% end %>
+  </p>
+
     <%= f.submit "スレッドを立てる" , class: "btn btn-secondary mt-2" %>
   <% end %>
 </div>

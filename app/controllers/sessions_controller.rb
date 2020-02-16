@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       flash[:success] = "ログインしました"
       log_in user
       params[:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to new_user_path
+      redirect_to sureds_path
     else
       flash.now[:danger] = "どちらかが正しくありません"
      render "new"
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   def destroy
     log_out if logged_in?
     flash[:warning] = "ログアウトしました"
-    redirect_to new_user_path
+    redirect_to sureds_path
   end
 
 end
