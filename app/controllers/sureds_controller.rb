@@ -15,6 +15,7 @@ class SuredsController < ApplicationController
     if @sured.save
       redirect_to @sured
     else
+      flash.now[:danger] = "カテゴリーを選んでください"
       render "new"
     end
   end
