@@ -2,7 +2,8 @@ class SuredsController < ApplicationController
 
 
   def index
-    @sureds = Sured.all
+    @sureds = Sured.all.recent
+    @categoies = Category.all
   end
 
   def new
@@ -30,7 +31,7 @@ private
 
 
   def sured_params
-    params.require(:sured).permit(:title, :editer)
+    params.require(:sured).permit(:title, :editer, category_ids: [])
   end
 
   def seach_params
