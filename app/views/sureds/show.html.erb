@@ -18,7 +18,7 @@
                   <%= f.text_field :name, class: ' form-control ', value: "名無しさん" %>
 
                   <%= f.label :response, "コメント" %>
-                  <%= f.text_field :response, class: 'form-control' %>
+                  <%= f.text_area :response, class: 'form-control' %>
                   <%= f.submit yield(:button_text) , class: "btn btn-secondary mt-3" %>
                 <% end %>
               </div>
