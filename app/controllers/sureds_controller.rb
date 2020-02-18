@@ -20,8 +20,13 @@ class SuredsController < ApplicationController
     end
   end
 
-  def edit
+  def show
+    @sured = Sured.find(params[:id])
+    @sureds = Sured.find(params[:id]).comments
+    @comment = Comment.new
   end
+
+
 
   def seach
     @sureds = Sured.seach(seach_params[:sured])

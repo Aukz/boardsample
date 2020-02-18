@@ -9,3 +9,13 @@ hr {
 body {
       background-image: url("/images/bg.gif");
 }
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+table td {
+  /*word-break: break-all;*/
+  overflow-wrap : break-word;
+}

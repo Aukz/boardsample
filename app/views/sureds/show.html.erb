@@ -1,3 +1,31 @@
-<h1>Sureds#show</h1>
-<p>Find me in app/views/sureds/show.html.erb</p>
- 
+<% provide(:button_text, "コメントする") %>
+<div class="row">
+  <table class="bg-white table table-bordered mb-0 mt-3">
+    <tbody>
+      <tr style="border: 2px solid #d2d2d2;">
+        <td>
+          <h2 class ="text-center" ><%=@sured.title%></h2>
+              <div class="pl-5">
+                <% @sureds.each do |sured| %>
+                    <p class = "mb-0">名前:   <%=sured.name%><span class="ml-3">投稿日時: <%= sured.created_at%></span></p>
+                    <p class="mb-3 mt-2"><%=sured.response %></p>
+                <% end %>
+              </div>
+              <div class="form-row pl-5 mt-5 w-25">
+                <%= form_with(model: @comment, class: "",local: true) do |f| %>
+                <%= hidden_field_tag :id, params[:id] %>
+                  <%= f.label :name, "名前" %>
+                  <%= f.text_field :name, class: ' form-control ', value: "名無しさん" %>
+
+                  <%= f.label :response, "コメント" %>
+                  <%= f.text_field :response, class: 'form-control' %>
+                  <%= f.submit yield(:button_text) , class: "btn btn-secondary mt-3" %>
+                <% end %>
+              </div>
+            </td>
+            <br>
+          </tr>
+        </tbody>
+      </table>
+
+</div>
